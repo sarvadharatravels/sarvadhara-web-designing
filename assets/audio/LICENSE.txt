@@ -1,0 +1,21 @@
+Background music for Sarvadhara Sai Web Designing
+=================================================
+
+Title:    Indian Folk Classical Flute Music (1)
+Artist:   MayankSingh33
+Source:   https://commons.wikimedia.org/wiki/File:Indian_Folk_Classical_Flute_Music_(1).wav
+Direct:   https://upload.wikimedia.org/wikipedia/commons/1/1d/Indian_Folk_Classical_Flute_Music_%281%29.wav
+Licence:  Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)
+          https://creativecommons.org/licenses/by-sa/4.0/
+
+A compressed MP3 derived from the original WAV is stored here as bg-music.mp3
+for website playback only. This derivative is offered under the same CC BY-SA 4.0
+licence. Attribution appears in this file and beside the site's music control.
+
+A Pixabay Content Licence track could not be downloaded here because Pixabay
+is behind a Cloudflare challenge. This Wikimedia Commons recording was used
+instead: the licence is explicit, commercial website use is allowed, and
+simple attribution is straightforward.
+
+The YouTube Short reference provided by the owner was used only as a style
+guide and was not copied.
