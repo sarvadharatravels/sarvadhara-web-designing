@@ -419,3 +419,338 @@ html, body { overflow-x: hidden; }
   .mini-cards { gap: .3rem; }
   .cx-slider-handle { width: 40px; height: 40px; }
 }
+
+/* ============================================================
+   Instant wow, ambient motion, video bands, marquees, cursor
+   These run on mobile too. Only prefers-reduced-motion opts out.
+   ============================================================ */
+
+/* Immediate intro (CSS-first, no JS required) */
+#cx-intro {
+  position: fixed; inset: 0; z-index: 5000;
+  display: grid; place-items: center;
+  pointer-events: auto;
+  background: transparent;
+  overflow: hidden;
+}
+#cx-intro.is-done { pointer-events: none; }
+.cx-intro-curtains { position: absolute; inset: 0; z-index: 2; display: flex; flex-direction: column; }
+.cx-intro-curtain {
+  flex: 1; background: linear-gradient(180deg, #2a0c12, #5a1a24 55%, #3a1218);
+  transform-origin: center;
+}
+.cx-intro-curtain--top { animation: cxCurtainTop 0.85s cubic-bezier(.7,.1,.2,1) 1.05s forwards; }
+.cx-intro-curtain--bot { animation: cxCurtainBot 0.85s cubic-bezier(.7,.1,.2,1) 1.05s forwards; }
+@keyframes cxCurtainTop { to { transform: translateY(-105%); } }
+@keyframes cxCurtainBot { to { transform: translateY(105%); } }
+.cx-intro-goldline {
+  position: absolute; left: 50%; top: 50%; z-index: 3;
+  width: 0; height: 2px; background: linear-gradient(90deg, transparent, #f3d789, #c9a24d, #f3d789, transparent);
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 16px rgba(201,162,77,.8);
+  animation: cxGoldLine 0.55s ease 0.7s forwards;
+}
+@keyframes cxGoldLine { to { width: min(80vw, 520px); } }
+.cx-intro-mark {
+  position: relative; z-index: 4; text-align: center; color: #f3d789;
+  animation: cxIntroMarkOut 0.45s ease 1.15s forwards;
+}
+.cx-intro-emblem {
+  width: 72px; height: 72px; display: block; margin: 0 auto .85rem;
+  filter: drop-shadow(0 0 18px rgba(243,215,137,.65));
+  clip-path: circle(0% at 50% 50%);
+  animation: cxEmblemIn 0.7s cubic-bezier(.2,.7,.2,1) 0.05s forwards;
+}
+@keyframes cxEmblemIn { to { clip-path: circle(75% at 50% 50%); } }
+.cx-intro-name {
+  margin: 0; font-family: var(--display, "Playfair Display", serif);
+  font-weight: 600; letter-spacing: .18em;
+  font-size: clamp(1.15rem, 4.2vw, 1.85rem);
+  background: linear-gradient(90deg, #8a6a22 0%, #ffe9a8 35%, #c9a24d 50%, #ffe9a8 65%, #8a6a22 100%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  animation: cxNameIn 0.7s ease 0.28s forwards, cxShimmer 3.2s linear 0.9s infinite;
+  clip-path: inset(0 100% 0 0);
+}
+.cx-intro-unit {
+  margin: .4rem 0 0; letter-spacing: .28em; font-size: .68rem; font-weight: 800;
+  color: #e8dccb; opacity: 0;
+  animation: cxUnitIn 0.5s ease 0.5s forwards;
+}
+@keyframes cxNameIn { to { clip-path: inset(0 0 0 0); } }
+@keyframes cxUnitIn { to { opacity: 1; } }
+@keyframes cxIntroMarkOut { to { opacity: 0; transform: scale(.92); } }
+@keyframes cxShimmer { to { background-position: -200% 0; } }
+
+body.cx-introing .site-header,
+body.cx-introing .wd-float-wa,
+body.cx-introing #toTop,
+body.cx-introing #musicToggle,
+body.cx-introing #scrollProgress { opacity: 0 !important; pointer-events: none; }
+body.cx-intro-done .site-header,
+body.cx-intro-done .wd-float-wa,
+body.cx-intro-done #musicToggle,
+body.cx-intro-done #scrollProgress { opacity: 1; transition: opacity .45s ease; }
+
+/* After curtains finish, fade the overlay so hero copy is unobstructed.
+   .is-done (added by JS at ~1.9s) must NOT restart a delayed animation. */
+#cx-intro { animation: cxIntroFadeOut 0.4s ease 1.85s forwards; }
+@keyframes cxIntroFadeOut { to { opacity: 0; visibility: hidden; pointer-events: none; } }
+#cx-intro.is-done {
+  animation: none;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* Headline words: blur-to-sharp rise, after the curtain */
+.cx-word {
+  display: inline-block; opacity: 0;
+  filter: blur(14px);
+  transform: translateY(28px);
+  animation: cxWordIn 0.7s cubic-bezier(.2,.7,.2,1) forwards;
+  animation-delay: calc(1.6s + var(--d, 0s));
+  will-change: transform, opacity, filter;
+}
+.cx-word-em { font-family: var(--display); font-style: italic; color: var(--gold-bright, #e0c06a); }
+@keyframes cxWordIn {
+  to { opacity: 1; filter: blur(0); transform: none; }
+}
+.wd-hero .eyebrow { opacity: 0; animation: cxWordIn 0.6s ease 1.5s forwards; }
+.wd-hero .lead, .wd-hero-note { opacity: 0; animation: cxWordIn 0.6s ease 2.25s forwards; }
+.wd-tagline {
+  opacity: 0;
+  background: linear-gradient(90deg, #c9a24d 0%, #ffe9a8 40%, #c9a24d 60%, #8a6a22 100%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text; background-clip: text;
+  color: transparent !important;
+  animation: cxWordIn 0.7s ease 2.05s forwards, cxShimmer 3.5s linear 2.6s infinite;
+}
+.wd-hero-actions { opacity: 0; transform: scale(.9); animation: cxCtaPop 0.55s cubic-bezier(.2,1.2,.3,1) 2.35s forwards; }
+@keyframes cxCtaPop {
+  to { opacity: 1; transform: none; }
+}
+.wd-hero-actions .btn-gold { animation: cxCtaShift 5s ease-in-out 2.6s infinite, cxGlowPulse 1.8s ease-in-out 2.4s 3; }
+@keyframes cxGlowPulse {
+  0%, 100% { box-shadow: 0 0 0 1px rgba(255,231,163,.35), 0 0 22px rgba(201,162,77,.45), 0 10px 24px rgba(122,31,43,.22); }
+  50% { box-shadow: 0 0 0 2px rgba(255,231,163,.7), 0 0 36px rgba(201,162,77,.85), 0 12px 28px rgba(122,31,43,.3); }
+}
+
+/* Disable the old immediate rise so the intro can own the first paint */
+.wd-anim { opacity: inherit; transform: none; animation: none; }
+
+/* Ken Burns on video and poster fallback */
+.wd-hero-media { overflow: hidden; }
+.wd-hero-video, .cx-bg-video, .cx-kb-poster, .wd-hero-poster-kb {
+  transform-origin: 50% 50%;
+  animation: cxKenBurns 22s ease-in-out infinite alternate;
+}
+@keyframes cxKenBurns {
+  from { transform: scale(1) translate(0, 0); }
+  to { transform: scale(1.12) translate(-2.2%, -1.4%); }
+}
+.wd-hero-poster-kb, .cx-kb-poster {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+  z-index: 0; opacity: 0; pointer-events: none; transition: opacity .4s;
+}
+.wd-hero-media.is-static .wd-hero-poster-kb,
+.cx-videobox.is-static .cx-kb-poster { opacity: 1; }
+.wd-hero-media.is-playing .wd-hero-poster-kb,
+.cx-videobox.is-playing .cx-kb-poster { opacity: 0; }
+.wd-hero-video, .cx-bg-video {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+}
+
+/* Persistent floating devices (including a compact phone on mobile) */
+.wd-devices .device-laptop, .wd-devices .device-phone {
+  animation: floaty 6.5s ease-in-out infinite, cxTilt 9s ease-in-out infinite;
+}
+.wd-devices .device-phone { animation-delay: .4s, 1s; }
+@keyframes cxTilt {
+  0%, 100% { rotate: 0deg; }
+  50% { rotate: 1.2deg; }
+}
+
+/* CSS bokeh (visible even before JS) + canvas particles */
+.cx-bokeh { position: absolute; inset: 0; z-index: 3; pointer-events: none; overflow: hidden; }
+.cx-bokeh i {
+  position: absolute; border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, rgba(255,240,190,.85), rgba(201,162,77,.2) 55%, transparent 70%);
+  animation: cxBokehDrift 14s ease-in-out infinite;
+  filter: blur(1px);
+}
+.cx-bokeh i:nth-child(1) { width: 14px; height: 14px; left: 12%; top: 22%; animation-duration: 16s; }
+.cx-bokeh i:nth-child(2) { width: 22px; height: 22px; left: 78%; top: 18%; animation-duration: 18s; animation-delay: -3s; }
+.cx-bokeh i:nth-child(3) { width: 10px; height: 10px; left: 28%; top: 70%; animation-duration: 12s; animation-delay: -2s; }
+.cx-bokeh i:nth-child(4) { width: 18px; height: 18px; left: 62%; top: 64%; animation-duration: 15s; animation-delay: -6s; }
+.cx-bokeh i:nth-child(5) { width: 8px; height: 8px; left: 48%; top: 30%; animation-duration: 11s; animation-delay: -1s; }
+.cx-bokeh i:nth-child(6) { width: 26px; height: 26px; left: 88%; top: 48%; animation-duration: 20s; animation-delay: -8s; opacity: .7; }
+@keyframes cxBokehDrift {
+  0%, 100% { transform: translate3d(0, 0, 0); opacity: .55; }
+  50% { transform: translate3d(18px, -28px, 0); opacity: 1; }
+}
+#cx-ambient {
+  position: absolute; inset: 0; z-index: 3; pointer-events: none; width: 100%; height: 100%;
+}
+
+/* Video bands */
+.cx-videobox {
+  position: relative; overflow: hidden;
+  color: #fffdf8; text-align: center;
+  min-height: 42vh;
+  display: flex; align-items: center; justify-content: center;
+}
+.cx-videobox-media { position: absolute; inset: 0; }
+.cx-videobox-veil {
+  position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background: linear-gradient(180deg, rgba(26,18,20,.45), rgba(92,21,32,.55) 50%, rgba(26,18,20,.7));
+}
+.cx-videobox-content { position: relative; z-index: 2; padding: 3.2rem 1.4rem; max-width: 46rem; }
+.wd-band.cx-videobox { padding: 0; min-height: 48vh; }
+.wd-band.cx-videobox p,
+.cx-videobox-content .wd-band-line {
+  font-family: var(--display); font-style: italic;
+  font-size: clamp(1.6rem, 4.4vw, 3rem);
+  line-height: 1.2; margin: 0;
+  background: linear-gradient(90deg, #c9a24d, #ffe9a8, #c9a24d);
+  background-size: 200% 100%;
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  animation: cxShimmer 4s linear infinite;
+  text-shadow: none;
+}
+.wd-launch.cx-videobox { border-radius: 0; min-height: 52vh; padding: 0; box-shadow: none; }
+.wd-launch.cx-videobox h2 { color: #fffdf8; }
+.wd-launch.cx-videobox p { color: #f0e6d6; }
+
+/* Marquees */
+.cx-marquee-wrap { overflow: hidden; background: #1a1214; }
+.cx-marquee {
+  overflow: hidden; white-space: nowrap;
+  border-top: 1px solid rgba(201,162,77,.35);
+  border-bottom: 1px solid rgba(201,162,77,.35);
+  background: #1a1214;
+  padding: .7rem 0;
+}
+.cx-marquee--tilt {
+  transform: rotate(-2.2deg) scale(1.05);
+  margin: .6rem 0 1.2rem;
+  background: #2a1218;
+  border-color: rgba(201,162,77,.5);
+}
+.cx-marquee-track {
+  display: inline-block;
+  color: var(--gold-bright, #e0c06a);
+  font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+  font-size: .78rem;
+  animation: cxMarquee 36s linear infinite;
+  will-change: transform;
+}
+.cx-marquee--rev .cx-marquee-track { animation-direction: reverse; animation-duration: 42s; }
+@keyframes cxMarquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* Cursor glow (desktop) */
+#cx-cursor {
+  position: fixed; width: 22px; height: 22px; border-radius: 50%;
+  pointer-events: none; z-index: 4500;
+  background: radial-gradient(circle, rgba(255,232,160,.7), rgba(201,162,77,.15) 55%, transparent 70%);
+  mix-blend-mode: screen;
+  transform: translate(-50%, -50%);
+  opacity: 0; transition: opacity .2s;
+}
+#cx-cursor.is-on { opacity: 1; }
+.cx-magnetic { will-change: transform; }
+
+/* Tap ripples */
+.btn { position: relative; overflow: hidden; }
+.cx-ripple {
+  position: absolute; border-radius: 50%; pointer-events: none;
+  background: rgba(255, 236, 190, .45);
+  transform: scale(0); animation: cxRipple .6s ease-out forwards;
+}
+@keyframes cxRipple { to { transform: scale(18); opacity: 0; } }
+
+/* Showcase laptop video */
+.cx-screen-video {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+  opacity: .9;
+}
+
+/* Light parallax still allowed on mobile */
+@media (max-width: 767px) {
+  .wd-hero-orbs { display: block; opacity: .7; }
+  .cx-float, .cx-fly { display: block; }
+  .cx-mosaic { opacity: 0; }
+  .cx-screen-final { opacity: 0; }
+  .cx-phone-screen img { opacity: 0; }
+  .page-web .btn-gold { animation: cxCtaShift 5s ease-in-out infinite, cxGlowPulse 1.8s ease-in-out 2.4s 3; }
+  .cx-marquee { padding: .55rem 0; }
+  .cx-marquee-track { font-size: .68rem; }
+  .wd-devices {
+    display: block !important;
+    width: 34vw; max-width: 130px;
+    right: 0.85rem !important; left: auto !important;
+    top: auto !important; bottom: 5.2rem;
+  }
+  .wd-devices .device-laptop { display: none; }
+  .wd-devices .device-phone { position: relative; left: 0 !important; width: 100% !important; bottom: 0 !important; }
+  .cx-showcase-pin, .cx-ba-pin { min-height: 100vh; min-height: 100dvh; }
+  .cx-stage { height: 390px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #cx-intro, #cx-intro * { animation: none !important; }
+  #cx-intro { display: none !important; }
+  .cx-word, .wd-hero .eyebrow, .wd-hero .lead, .wd-hero-note, .wd-tagline, .wd-hero-actions {
+    animation: none !important; opacity: 1 !important; filter: none !important; transform: none !important;
+    color: inherit;
+  }
+  .wd-tagline { color: var(--saffron-soft, #fde9b8) !important; }
+  .wd-hero-video, .cx-bg-video, .cx-kb-poster, .wd-hero-poster-kb, .cx-bokeh i, .cx-marquee-track,
+  .wd-devices .device-laptop, .wd-devices .device-phone { animation: none !important; }
+  body.cx-introing .site-header { opacity: 1 !important; pointer-events: auto; }
+}
+
+@media (max-width: 960px) {
+  .wd-devices {
+    display: block !important;
+    width: min(38vw, 160px);
+    right: 1rem; left: auto; top: auto; bottom: 5rem;
+  }
+  .wd-devices .device-laptop { display: none; }
+  .wd-devices .device-phone { position: relative; left: 0; width: 100%; bottom: 0; }
+}
+#launch.wd-section { padding: 0; }
+
+.wd-hero-copy { position: relative; z-index: 8; }
+.wd-hero-counters { z-index: 8; }
+
+/* Kill CSS entrance once JS owns it, so a later pin cannot restart it. */
+body.cx-js-enter .cx-word,
+body.cx-js-enter .wd-hero .eyebrow,
+body.cx-js-enter .wd-hero .lead,
+body.cx-js-enter .wd-hero-note,
+body.cx-js-enter .wd-tagline,
+body.cx-js-enter .wd-hero-actions {
+  animation: none !important;
+}
+/* After the intro, JS adds cx-hero-in so a ScrollTrigger pin cannot
+   restart CSS entrance animations and leave the headline at opacity 0. */
+body.cx-hero-in .cx-word,
+body.cx-hero-in .wd-hero .eyebrow,
+body.cx-hero-in .wd-hero .lead,
+body.cx-hero-in .wd-hero-note,
+body.cx-hero-in .wd-tagline,
+body.cx-hero-in .wd-hero-actions {
+  opacity: 1;
+  filter: none;
+  transform: none;
+}
+body.cx-hero-in .wd-tagline {
+  animation: cxShimmer 3.5s linear infinite;
+}
+@media (max-width: 767px) {
+  .wd-hero-copy { padding-right: 0.25rem; padding-bottom: 5.6rem; }
+  .wd-hero h1 { font-size: clamp(2.05rem, 8.6vw, 2.7rem); }
+  .wd-hero-actions { max-width: calc(100% - 7.2rem); }
+  .wd-hero-note { max-width: calc(100% - 7.2rem); }
+}

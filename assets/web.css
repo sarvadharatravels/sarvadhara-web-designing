@@ -162,8 +162,7 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 12px); }
   50% { transform: translateY(-10px); }
 }
 @media (max-width: 960px) {
-  .wd-devices { display: none; }
-  .wd-hero-copy { max-width: none; margin-left: auto; }
+  .wd-hero-copy { max-width: none; margin-left: auto; padding-right: 0; }
 }
 
 /* Specs / counters */

@@ -29,10 +29,16 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/styles.css" />
-  <link rel="stylesheet" href="assets/web.css" />
+  <script>
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      document.documentElement.classList.add("cx-reduce");
+    }
+  </script>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <link rel="stylesheet" href="assets/styles.css?v=20261110x" />
+  <link rel="stylesheet" href="assets/web.css?v=20261110x" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.css" />
-  <link rel="stylesheet" href="assets/cinematic.css" />
+  <link rel="stylesheet" href="assets/cinematic.css?v=20261110x" />
 
   <script type="application/ld+json">
   {
@@ -74,7 +80,20 @@
   }
   </script>
 </head>
-<body class="page-web">
+<body class="page-web cx-introing">
+
+  <div id="cx-intro" aria-hidden="true">
+    <div class="cx-intro-curtains">
+      <div class="cx-intro-curtain cx-intro-curtain--top"></div>
+      <div class="cx-intro-curtain cx-intro-curtain--bot"></div>
+    </div>
+    <div class="cx-intro-goldline"></div>
+    <div class="cx-intro-mark">
+      <img class="cx-intro-emblem" src="assets/img/logo-emblem.png" width="72" height="72" alt="" />
+      <p class="cx-intro-name">SARVADHARA SAI</p>
+      <p class="cx-intro-unit">WEB DESIGNING</p>
+    </div>
+  </div>
   <div id="scrollProgress" aria-hidden="true"></div>
   <a class="visually-hidden" href="#main">Skip to content</a>
 
@@ -147,11 +166,14 @@
 
   <main id="main">
     <section class="wd-hero" id="hero">
-      <div class="wd-hero-media" aria-hidden="true">
-        <video class="wd-hero-video" autoplay muted loop playsinline preload="metadata" poster="assets/video/hero-poster.jpg">
+      <div class="wd-hero-media is-static" aria-hidden="true">
+        <img class="wd-hero-poster-kb" src="assets/video/hero-poster.jpg" alt="" width="1280" height="720" />
+        <video class="wd-hero-video" autoplay muted loop playsinline webkit-playsinline preload="auto" poster="assets/video/hero-poster.jpg" data-auto="1">
           <source src="assets/video/hero.mp4" type="video/mp4" />
         </video>
-        <!-- Video: “A Programmer Working on a Laptop Computer” by Raddy, Pexels, free licence. -->
+        <!-- Video: “A Programmer Working on a Laptop Computer” by Raddy, Pexels License. -->
+        <div class="cx-bokeh" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <canvas id="cx-ambient" aria-hidden="true"></canvas>
         <div class="wd-hero-veil"></div>
         <div class="wd-hero-dim" aria-hidden="true"></div>
         <div class="wd-gold-bloom" aria-hidden="true"></div>
@@ -160,10 +182,16 @@
       </div>
       <div class="wd-hero-copy">
         <p class="eyebrow wd-anim"><span class="dot"></span> Web designing in Tambaram, Chennai, Tamil Nadu, India</p>
-        <h1 class="wd-anim">Professional websites <em>for your business</em></h1>
-        <p class="wd-tagline wd-anim">All your website needs, at one door.</p>
-        <p class="lead wd-anim">A complete website from one requirement form — with the first year of domain, hosting and SSL, a Google listing when you need it, and a preview before we go live.</p>
-        <div class="wd-hero-actions wd-anim">
+        <h1>
+          <span class="cx-word" style="--d:.00s">Professional</span>
+          <span class="cx-word" style="--d:.08s">websites</span>
+          <span class="cx-word cx-word-em" style="--d:.16s">for</span>
+          <span class="cx-word cx-word-em" style="--d:.22s">your</span>
+          <span class="cx-word cx-word-em" style="--d:.28s">business</span>
+        </h1>
+        <p class="wd-tagline">All your website needs, at one door.</p>
+        <p class="lead">A complete website from one requirement form — with the first year of domain, hosting and SSL, a Google listing when you need it, and a preview before we go live.</p>
+        <div class="wd-hero-actions">
           <a class="btn btn-gold btn-pill" href="assets/Website-Requirement-Form.pdf" download>Get Started — Download Requirement Form</a>
           <a class="btn btn-ghost btn-pill" href="#contact">Get a quote</a>
         </div>
@@ -193,8 +221,28 @@
       </div>
     </section>
 
-    <div class="wd-band">
-      <p>All your website needs, at one door.</p>
+    <div class="cx-marquee-wrap" aria-hidden="true">
+      <div class="cx-marquee">
+        <div class="cx-marquee-track">Websites · Digital E-cards · QR menus · Wedding sites · Business sites · Catalogues · Booking pages · Google listing · Landing pages · Loyalty pages · Memorial pages · Link-in-bio · Portfolios · Bilingual Tamil–English · Event microsites · NFC cards · Virtual tours · Brochures · Social creatives · Local SEO · Websites · Digital E-cards · QR menus · Wedding sites · Business sites · Catalogues · Booking pages · Google listing · Landing pages · Loyalty pages · Memorial pages · Link-in-bio · Portfolios · Bilingual Tamil–English · Event microsites · NFC cards · Virtual tours · Brochures · Social creatives · Local SEO · Websites · Digital E-cards · QR menus · Wedding sites · Business sites · Catalogues · Booking pages · Google listing · Landing pages · Loyalty pages · Memorial pages · Link-in-bio · Portfolios · Bilingual Tamil–English · Event microsites · NFC cards · Virtual tours · Brochures · Social creatives · Local SEO · Websites · Digital E-cards · QR menus · Wedding sites · Business sites · Catalogues · Booking pages · Google listing · Landing pages · Loyalty pages · Memorial pages · Link-in-bio · Portfolios · Bilingual Tamil–English · Event microsites · NFC cards · Virtual tours · Brochures · Social creatives · Local SEO · </div>
+      </div>
+    </div>
+
+    <div class="wd-band cx-videobox">
+      <div class="cx-videobox-media">
+        <img class="cx-kb-poster" src="assets/video/band-poster.jpg" alt="" width="1280" height="720" />
+        <video class="cx-bg-video" muted loop playsinline webkit-playsinline preload="none" poster="assets/video/band-poster.jpg" data-src="assets/video/band.mp4" data-auto="1"></video>
+        <div class="cx-videobox-veil"></div>
+      </div>
+      <div class="cx-videobox-content">
+        <p class="wd-band-line">All your website needs, at one door.</p>
+      </div>
+    </div>
+    <!-- Band video: “Digital Projection Of The Earth Mass In Blue Lights” by Pressmaster, Pexels License. -->
+
+    <div class="cx-marquee-wrap" aria-hidden="true">
+      <div class="cx-marquee cx-marquee--tilt cx-marquee--rev">
+        <div class="cx-marquee-track">Websites · Digital E-cards · QR menus · Wedding sites · Business sites · Catalogues · Booking pages · Google listing · Landing pages · Loyalty pages · Memorial pages · Link-in-bio · Portfolios · Bilingual Tamil–English · Event microsites · NFC cards · Virtual tours · Brochures · Social creatives · Local SEO · Websites · Digital E-cards · QR menus · Wedding sites · Business sites · Catalogues · Booking pages · Google listing · Landing pages · Loyalty pages · Memorial pages · Link-in-bio · Portfolios · Bilingual Tamil–English · Event microsites · NFC cards · Virtual tours · Brochures · Social creatives · Local SEO · Websites · Digital E-cards · QR menus · Wedding sites · Business sites · Catalogues · Booking pages · Google listing · Landing pages · Loyalty pages · Memorial pages · Link-in-bio · Portfolios · Bilingual Tamil–English · Event microsites · NFC cards · Virtual tours · Brochures · Social creatives · Local SEO · Websites · Digital E-cards · QR menus · Wedding sites · Business sites · Catalogues · Booking pages · Google listing · Landing pages · Loyalty pages · Memorial pages · Link-in-bio · Portfolios · Bilingual Tamil–English · Event microsites · NFC cards · Virtual tours · Brochures · Social creatives · Local SEO · </div>
+      </div>
     </div>
 
     <section class="cx-showcase" id="showcase">
@@ -213,6 +261,7 @@
           <div class="cx-laptop">
             <div class="cx-lid">
               <div class="cx-screen">
+                <video class="cx-screen-video" muted loop playsinline webkit-playsinline preload="none" poster="assets/video/screen-poster.jpg" data-src="assets/video/screen.mp4"></video>
                 <div class="cx-mosaic">
                   <img src="assets/img/portfolio/travels-desktop.jpg" alt="" />
                   <img src="assets/img/portfolio/restaurant-desktop.jpg" alt="" />
@@ -769,15 +818,21 @@
       </div>
     </section>
 
-    <section class="wd-section wd-section--white">
-      <div class="container">
-        <div class="wd-launch reveal">
+    <section class="wd-section wd-section--ink" id="launch">
+      <div class="wd-launch cx-videobox reveal">
+        <div class="cx-videobox-media">
+          <img class="cx-kb-poster" src="assets/video/cta-poster.jpg" alt="" width="1280" height="720" />
+          <video class="cx-bg-video" muted loop playsinline webkit-playsinline preload="none" poster="assets/video/cta-poster.jpg" data-src="assets/video/cta.mp4"></video>
+          <div class="cx-videobox-veil"></div>
+        </div>
+        <div class="cx-videobox-content">
           <h2>Be one of our first clients</h2>
           <p>We are just opening this desk. Early clients get our close personal attention, a careful preview, and a quote shaped to the form you send — never a surprise price on this page.</p>
           <a class="btn btn-gold btn-pill" href="assets/Website-Requirement-Form.pdf" download>Download the requirement form</a>
         </div>
       </div>
     </section>
+    <!-- CTA video: “Video of a House Interior” by Kindel Media, Pexels License. -->
 
     <section class="wd-section wd-section--cream" id="faq">
       <div class="container">
@@ -946,7 +1001,7 @@
     </div>
     <div class="container footer-bottom">
       <p>© <span id="year">2026</span> Sarvadhara Sai Web Designing · A unit of SarvadharaSai Enterprises · Udyam registered UDYAM-TN-34-0125107 · Chennai.</p>
-      <p class="fine">Enquiry site only — quotes are given after we receive your filled requirement form. GST extra as applicable once registered. Hero video: Raddy, Pexels (free licence).</p>
+      <p class="fine">Enquiry site only — quotes are given after we receive your filled requirement form. GST extra as applicable once registered. Videos: Raddy, Pressmaster and Kindel Media, Pexels License. See assets/video/LICENSE.txt.</p>
     </div>
   </footer>
 
@@ -959,10 +1014,13 @@
     <span class="wd-music-tip">Play music</span>
   </button>
 
+  <div id="cx-cursor" aria-hidden="true"></div>
+
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js" defer></script>
-  <script src="assets/web.js" defer></script>
-  <script src="assets/cinematic.js" defer></script>
+  <script src="assets/web.js?v=20261110x" defer></script>
+  <script src="assets/cinematic.js?v=20261110x" defer></script>
+  <script src="assets/motion.js?v=20261110x" defer></script>
 </body>
 </html>

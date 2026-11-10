@@ -21,11 +21,12 @@
       return;
     }
     gsap.registerPlugin(ScrollTrigger);
+    ScrollTrigger.config({ ignoreMobileResize: true });
 
     var lenis = null;
     if (!reduced && typeof Lenis === "function") {
       lenis = new Lenis({
-        duration: 1.05,
+        duration: isMobile ? 0.85 : 1.05,
         easing: function (t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); },
         smoothWheel: true,
         smoothTouch: false
@@ -44,15 +45,11 @@
     }
 
     heroTimeline();
-    if (!isMobile) {
-      showcaseTimeline();
-      beforeAfterTimeline();
-    } else {
-      lightShowcase();
-      lightBeforeAfter();
-    }
+    showcaseTimeline();
+    beforeAfterTimeline();
     slideHeadings(false);
     parallaxLayers();
+    sectionStaggers();
     initSlider();
 
     var resizeTimer;
@@ -123,14 +120,14 @@
       scrollTrigger: {
         trigger: hero,
         start: "top top",
-        end: isMobile ? "+=80%" : "+=140%",
+        end: isMobile ? "+=110%" : "+=140%",
         pin: true,
         scrub: 0.7,
         anticipatePin: 1,
         onUpdate: function (self) {
           if (!burstPlayed && self.progress > 0.38) {
             burstPlayed = true;
-            if (canvas && !isMobile) playBurst(canvas);
+            if (canvas) playBurst(canvas);
           }
         }
       }
@@ -236,6 +233,7 @@
     var finale = pin.querySelector(".cx-screen-final");
     var phoneImg = pin.querySelector(".cx-phone-screen img");
 
+    var scale = isMobile ? 0.55 : 1;
     var starts = [
       { x: -280, y: -160, z: -180, rotY: -40, rotX: 14 },
       { x: 300, y: -130, z: -120, rotY: 36, rotX: -8 },
@@ -265,7 +263,7 @@
     flies.forEach(function (el, i) {
       var s = starts[i % starts.length];
       gsap.set(el, {
-        x: s.x, y: s.y, z: s.z,
+        x: s.x * scale, y: s.y * scale, z: s.z * scale,
         rotateY: s.rotY, rotateX: s.rotX,
         opacity: 0, scale: 0.75,
         transformPerspective: 1200
@@ -279,7 +277,7 @@
       scrollTrigger: {
         trigger: section,
         start: "top top",
-        end: "+=260%",
+        end: isMobile ? "+=170%" : "+=260%",
         pin: pin,
         scrub: 0.8,
         anticipatePin: 1
@@ -341,7 +339,7 @@
       scrollTrigger: {
         trigger: section,
         start: "top top",
-        end: "+=200%",
+        end: isMobile ? "+=150%" : "+=200%",
         pin: pin,
         scrub: 0.75,
         anticipatePin: 1,
@@ -429,20 +427,51 @@
 
   /* —— Subtle parallax on decorative layers —— */
   function parallaxLayers() {
-    if (isMobile) return;
+    var amount = isMobile ? 0.45 : 1;
     document.querySelectorAll(".wd-hero-orbs span").forEach(function (el, i) {
       gsap.to(el, {
-        y: (i % 2 === 0 ? -50 : 40),
-        x: (i % 2 === 0 ? 20 : -16),
+        y: (i % 2 === 0 ? -50 : 40) * amount,
+        x: (i % 2 === 0 ? 20 : -16) * amount,
         ease: "none",
         scrollTrigger: { trigger: ".wd-hero", start: "top top", end: "bottom top", scrub: true }
       });
     });
     document.querySelectorAll(".cx-orb").forEach(function (el, i) {
       gsap.to(el, {
-        y: i % 2 === 0 ? -30 : 24,
+        y: (i % 2 === 0 ? -30 : 24) * amount,
         ease: "none",
         scrollTrigger: { trigger: ".cx-ba", start: "top bottom", end: "bottom top", scrub: true }
+      });
+    });
+  }
+
+
+  function sectionStaggers() {
+    [
+      [".wd-services", ".wd-service"],
+      [".wd-packages", ".wd-pack"],
+      [".wd-folio", ".wd-folio-card"],
+      [".wd-steps", ".wd-step"],
+      [".wd-why", ".wd-why-item"],
+      [".wd-features", ".wd-features article, .wd-feature"]
+    ].forEach(function (pair) {
+      var parent = document.querySelector(pair[0]);
+      if (!parent) return;
+      var items = parent.querySelectorAll(pair[1]);
+      if (!items.length) return;
+      gsap.from(items, {
+        y: isMobile ? 22 : 32,
+        opacity: 0,
+        duration: 0.55,
+        stagger: 0.08,
+        ease: "power2.out",
+        scrollTrigger: { trigger: parent, start: "top 86%" }
+      });
+    });
+    document.querySelectorAll(".wd-ds-ico, .wd-pack .num, .wd-service h3").forEach(function (el) {
+      gsap.from(el, {
+        y: 8, scale: 0.86, opacity: 0, duration: 0.45, ease: "back.out(1.8)",
+        scrollTrigger: { trigger: el, start: "top 90%" }
       });
     });
   }

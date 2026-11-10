@@ -1,0 +1,38 @@
+Video licences — Sarvadhara Sai Web Designing
+=============================================
+
+All clips below are from Pexels and are used under the Pexels License
+(https://www.pexels.com/license/): free for commercial and personal use,
+including on a business website. Attribution is not required by the licence
+but is recorded here and, in brief, in the site footer.
+
+1. Hero
+   Title:    A Programmer Working on a Laptop Computer
+   Artist:   Raddy
+   Page:     https://www.pexels.com/video/13522186/
+   File:     assets/video/hero.mp4 (720p, muted, loop) + hero-poster.jpg
+   Licence:  Pexels License
+
+2. Tagline band
+   Title:    Digital Projection Of The Earth Mass In Blue Lights
+   Artist:   Pressmaster
+   Page:     https://www.pexels.com/video/digital-projection-of-the-earth-mass-in-blue-lights-3129957/
+   File:     assets/video/band.mp4 (720p, muted, loop, lightly colour-graded) + band-poster.jpg
+   Licence:  Pexels License
+
+3. Final CTA band
+   Title:    Video of a House Interior
+   Artist:   Kindel Media
+   Page:     https://www.pexels.com/video/video-of-a-house-interior-7578552/
+   File:     assets/video/cta.mp4 (720p, muted, loop) + cta-poster.jpg
+   Licence:  Pexels License
+
+4. Showcase laptop screen
+   Title:    Digital Presentation Of Information On A Screen Monitor
+   Artist:   Pressmaster
+   Page:     https://www.pexels.com/video/digital-presentation-of-information-on-a-screen-monitor-3130182/
+   File:     assets/video/screen.mp4 (720p, muted, loop, recoloured toward gold) + screen-poster.jpg
+   Licence:  Pexels License
+
+Compressed derivatives are for website playback only and remain under the
+same Pexels License as the source clips.
