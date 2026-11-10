@@ -38,12 +38,12 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 12px); }
 /* —— Hero —— */
 .wd-hero {
   position: relative;
-  min-height: min(94vh, 880px);
+  min-height: 100vh; min-height: 100dvh;
   display: flex;
   align-items: flex-end;
   color: #fff;
   overflow: hidden;
-  background: #1a1214 url("../video/hero-poster.jpg") center/cover no-repeat;
+  background: #1a1214 url("video/hero-poster.jpg") center/cover no-repeat;
 }
 .wd-hero-media { position: absolute; inset: 0; }
 .wd-hero-video {
@@ -128,9 +128,9 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 12px); }
 
 /* Floating device mockups */
 .wd-devices {
-  position: absolute; right: max(2.4rem, calc((100% - var(--max, 1180px)) / 2 + 1.6rem));
-  top: 54%; transform: translateY(-48%);
-  width: min(34vw, 390px); z-index: 2; pointer-events: none;
+  position: absolute; right: max(3.4rem, calc((100% - var(--max, 1180px)) / 2 + 3.4rem));
+  top: calc(50% - 8rem);
+  width: min(32vw, 360px); z-index: 2; pointer-events: none;
 }
 .device-laptop {
   background: #1a1214;
@@ -149,13 +149,14 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 12px); }
   transform: translateX(-50%); background: #3a2a2e; border-radius: 4px;
 }
 .device-phone {
-  position: absolute; right: 6px; bottom: -22px; width: 30%;
+  position: absolute; left: -12%; right: auto; bottom: 6px; width: 28%; z-index: 3;
   background: #1a1214; border: 6px solid #1a1214; border-radius: 18px;
   box-shadow: 0 18px 40px rgba(0,0,0,.4), 0 0 0 1px rgba(201,162,77,.4);
   animation: floaty 7s ease-in-out .6s infinite;
   overflow: hidden;
 }
-.device-phone img { width: 100%; display: block; aspect-ratio: 9/16; object-fit: cover; object-position: top; }
+.device-phone { aspect-ratio: 9/16; overflow: hidden; }
+.device-phone img { width: 100%; height: 100%; display: block; object-fit: cover; object-position: top; }
 @keyframes floaty {
   0%,100% { transform: translateY(0); }
   50% { transform: translateY(-10px); }

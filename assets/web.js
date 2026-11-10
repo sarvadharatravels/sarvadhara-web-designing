@@ -26,6 +26,7 @@
     drawer.hidden = false;
     if (backdrop) backdrop.hidden = false;
     document.body.style.overflow = "hidden";
+    if (window.__sswLenis) window.__sswLenis.stop();
     if (toggle) toggle.setAttribute("aria-expanded", "true");
     requestAnimationFrame(function () {
       drawer.classList.add("is-open");
@@ -38,6 +39,7 @@
     if (backdrop) backdrop.classList.remove("is-open");
     if (toggle) toggle.setAttribute("aria-expanded", "false");
     document.body.style.overflow = "";
+    if (window.__sswLenis) window.__sswLenis.start();
     setTimeout(function () {
       if (!drawer.classList.contains("is-open")) {
         drawer.hidden = true;
@@ -226,7 +228,8 @@
   onScroll();
   if (toTop) toTop.addEventListener("click", function (e) {
     e.preventDefault();
-    window.scrollTo({ top: 0, behavior: motion.matches ? "auto" : "smooth" });
+    if (window.__sswLenis && !motion.matches) window.__sswLenis.scrollTo(0);
+    else window.scrollTo({ top: 0, behavior: motion.matches ? "auto" : "smooth" });
   });
 
   /* —— Scroll reveal —— */
