@@ -198,9 +198,22 @@
     fadeTo(0, 400);
     setTimeout(function () { if (!musicOn && audio) audio.pause(); }, 420);
   }
+  const musicHint = document.getElementById("musicHint");
+  const MUSIC_HINT_KEY = "ssw-music-hint";
+  function hideMusicHint() {
+    if (musicHint) musicHint.classList.add("is-hidden");
+    try { localStorage.setItem(MUSIC_HINT_KEY, "hidden"); } catch (e) {}
+  }
+  try {
+    if (musicHint && localStorage.getItem(MUSIC_HINT_KEY) === "hidden") {
+      musicHint.classList.add("is-hidden");
+    }
+  } catch (e) {}
+
   if (musicBtn) {
     setMusicUI();
     musicBtn.addEventListener("click", function () {
+      hideMusicHint();
       if (musicOn) stopMusic();
       else startMusic();
     });

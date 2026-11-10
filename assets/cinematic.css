@@ -486,10 +486,12 @@ body.cx-introing .site-header,
 body.cx-introing .wd-float-wa,
 body.cx-introing #toTop,
 body.cx-introing #musicToggle,
+body.cx-introing #musicHint,
 body.cx-introing #scrollProgress { opacity: 0 !important; pointer-events: none; }
 body.cx-intro-done .site-header,
 body.cx-intro-done .wd-float-wa,
 body.cx-intro-done #musicToggle,
+body.cx-intro-done #musicHint:not(.is-hidden),
 body.cx-intro-done #scrollProgress { opacity: 1; transition: opacity .45s ease; }
 
 /* After curtains finish, fade the overlay so hero copy is unobstructed.

@@ -27,7 +27,11 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 12px); }
 
 /* Header lockup: longer name than Travels */
 .page-web .nav { grid-template-columns: auto 1fr auto; }
-.page-web .logo-enterprises .logo-text { display: none; }
+/* Both marks are now the globe emblem, so a second identical circle is redundant.
+   The parent firm is named in the footer. */
+.page-web .logo-enterprises,
+.page-web .brand-lockup-divider { display: none; }
+.page-web .nav-drawer-brand-row .logo-mark + .logo-mark { display: none; }
 .page-web .nav-center { justify-self: end; margin-right: .85rem; gap: 1.15rem; }
 .page-web .logo-text strong { letter-spacing: .08em; }
 .page-web .logo-text em { letter-spacing: .12em; }
@@ -576,6 +580,38 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 12px); }
   transition: opacity .2s;
 }
 #musicToggle:hover .wd-music-tip, #musicToggle:focus .wd-music-tip { opacity: 1; }
+.wd-music-hint {
+  position: fixed;
+  left: calc(max(1rem, env(safe-area-inset-left)) + 60px);
+  bottom: calc(max(1rem, env(safe-area-inset-bottom)) + 12px);
+  z-index: 180;
+  background: #1a1214;
+  color: #f3d789;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+  padding: .38rem .75rem;
+  border-radius: 999px;
+  border: 1px solid rgba(201,162,77,.55);
+  box-shadow: 0 8px 18px rgba(26,18,20,.35);
+  pointer-events: none;
+  white-space: nowrap;
+  animation: wdHintPulse 1.8s ease-in-out infinite;
+}
+.wd-music-hint.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(-8px);
+  animation: none;
+  transition: opacity .35s ease, visibility 0s linear .35s, transform .35s ease;
+}
+@keyframes wdHintPulse {
+  0%, 100% { transform: translateY(0); box-shadow: 0 0 0 0 rgba(201,162,77,.5), 0 8px 18px rgba(26,18,20,.35); }
+  50% { transform: translateY(-2px); box-shadow: 0 0 0 7px rgba(201,162,77,0), 0 8px 18px rgba(26,18,20,.35); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .wd-music-hint { animation: none; }
+}
 .wd-music-credit {
   font-size: .68rem; color: rgba(255,255,255,.55); margin-top: .6rem;
 }
