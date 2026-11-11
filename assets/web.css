@@ -642,3 +642,7 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 12px); }
 
 .page-web .site-footer { padding-bottom: 5rem; }
 .contact-actions { padding-bottom: .25rem; }
+
+.wd-ds-sample { margin: .45rem 0 0; font-size: .85rem; font-weight: 700; }
+.wd-ds-sample a { color: var(--maroon); text-decoration: underline; text-underline-offset: 2px; }
+.wd-ds-sample a:hover { color: var(--gold-deep); }
