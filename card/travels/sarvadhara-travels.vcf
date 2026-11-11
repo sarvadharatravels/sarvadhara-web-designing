@@ -1,10 +1,12 @@
 BEGIN:VCARD
 VERSION:3.0
-N:Travels;Sarvadhara;;;
+N:;;;;
 FN:Sarvadhara Travels
-ORG:Sarvadhara Travels
-TEL;TYPE=CELL,VOICE:+919940299543
-EMAIL;TYPE=WORK:info@sarvadharatravels.in
+ORG:Sarvadhara Travels;SarvadharaSai Enterprises
+X-ABShowAs:COMPANY
+TEL;TYPE=WORK,VOICE,CELL:+919940299543
+EMAIL;TYPE=WORK,INTERNET:info@sarvadharatravels.in
 URL:https://sarvadharatravels.in/
-ADR;TYPE=WORK:;;;Chennai, Tamil Nadu;;;
+ADR;TYPE=WORK:;;;Chennai;Tamil Nadu;;India
+NOTE:FLIGHTS · HOLIDAYS · HOTELS · IMPORT / EXPORT · CAR RENTALS
 END:VCARD

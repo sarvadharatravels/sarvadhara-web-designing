@@ -1,10 +1,7 @@
 (function () {
   "use strict";
-
-  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if (reduce) document.documentElement.classList.add("is-reduced");
-  else document.documentElement.classList.add("is-animating");
-
+  var root = document.documentElement;
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches || /[?&]static\b/.test(location.search);
   var card = document.getElementById("card");
   var flipBtn = document.getElementById("flipBtn");
   var shareBtn = document.getElementById("shareBtn");
@@ -19,149 +16,64 @@
     toast.t = setTimeout(function () { toastEl.classList.remove("is-on"); }, 2200);
   }
 
-  function runEntrance() {
-    var lines = document.querySelectorAll(".rule-edge");
-    var dots = document.querySelectorAll(".dots");
-    var title = document.querySelector("[data-enter='title']");
-    var stagger = Array.prototype.slice.call(document.querySelectorAll("[data-stagger]"));
-    var logo = document.querySelector("[data-enter='logo']");
-    var rule = document.querySelector("[data-enter='rule']");
-
-    if (reduce) {
-      [logo, rule, title].concat(stagger).forEach(function (el) { if (el) el.classList.add("is-in"); });
-      lines.forEach(function (el) { el.classList.add("is-on"); });
-      dots.forEach(function (el) { el.classList.add("is-on"); });
-      document.documentElement.classList.add("is-ready");
-      return;
+  // Split title lines into per-letter spans. Full text is laid out from the start,
+  // so the "typing" only changes opacity and nothing ever shifts or overlaps.
+  var chars = [];
+  Array.prototype.forEach.call(document.querySelectorAll(".face--front .title .tl"), function (line) {
+    var text = line.textContent;
+    line.textContent = "";
+    for (var i = 0; i < text.length; i++) {
+      var s = document.createElement("span");
+      s.className = "ch";
+      s.textContent = text[i];
+      line.appendChild(s);
+      chars.push(s);
     }
+  });
 
-    if (logo) logo.classList.add("is-in");
+  function all(sel) { return Array.prototype.slice.call(document.querySelectorAll(sel)); }
 
-    window.setTimeout(function () {
-      lines.forEach(function (el) { el.classList.add("is-on"); });
-      dots.forEach(function (el) { el.classList.add("is-on"); });
-      if (rule) rule.classList.add("is-in");
-    }, 180);
-
-    window.setTimeout(function () {
-      typeTitle(title, function () {
-        var start = 280;
-        var step = 420;
-        stagger.forEach(function (el, i) {
-          window.setTimeout(function () { el.classList.add("is-in"); }, start + i * step);
-        });
-        window.setTimeout(function () {
-          document.documentElement.classList.add("is-ready");
-        }, start + stagger.length * step + 300);
-      });
-    }, 900);
+  function finish() {
+    all(".face--front [data-reveal], .face--front .deco").forEach(function (el) { el.classList.add("is-in"); });
+    chars.forEach(function (c) { c.classList.add("is-in"); });
+    root.classList.add("is-ready");
   }
 
-  function typeTitle(el, done) {
-    if (!el) { if (done) done(); return; }
-    var full = el.getAttribute("data-type") || el.textContent.trim();
-    el.setAttribute("data-type", full);
-    if (reduce) {
-      el.textContent = full;
-      el.classList.add("is-in");
-      if (done) done();
-      return;
-    }
-    el.textContent = "";
-    el.classList.add("is-in");
-    var i = 0;
-    var delay = Math.max(38, Math.min(70, 800 / Math.max(full.length, 1)));
-    function tick() {
-      if (i <= full.length) {
-        el.textContent = full.slice(0, i);
-        i += 1;
-        window.setTimeout(tick, delay);
-      } else if (done) {
-        done();
-      }
-    }
-    tick();
+  function run() {
+    if (reduce) { finish(); return; }
+    var emblem = document.querySelector(".face--front .emblem");
+    var decos = all(".face--front .deco");
+    var seq = all(".face--front [data-reveal]").filter(function (el) { return el !== emblem; });
+    if (emblem) emblem.classList.add("is-in");
+    setTimeout(function () { decos.forEach(function (d) { d.classList.add("is-in"); }); }, 250);
+    var t = 700, step = Math.max(28, Math.min(60, 1300 / Math.max(chars.length, 1)));
+    chars.forEach(function (c, i) { setTimeout(function () { c.classList.add("is-in"); }, t + i * step); });
+    t += chars.length * step + 250;
+    seq.forEach(function (el, i) { setTimeout(function () { el.classList.add("is-in"); }, t + i * 380); });
+    setTimeout(finish, t + seq.length * 380 + 600);
   }
+
+  root.classList.add("js");
 
   function setFlip(on) {
-    if (!card) return;
     card.classList.toggle("is-flipped", on);
-    if (flipBtn) flipBtn.setAttribute("aria-pressed", on ? "true" : "false");
+    flipBtn.setAttribute("aria-pressed", on ? "true" : "false");
+    flipBtn.textContent = on ? "Show front" : "Flip card";
   }
-
-  if (flipBtn && card) {
-    flipBtn.addEventListener("click", function () {
-      setFlip(!card.classList.contains("is-flipped"));
-    });
-    card.addEventListener("dblclick", function () {
-      setFlip(!card.classList.contains("is-flipped"));
-    });
-    document.addEventListener("keydown", function (e) {
-      if (e.key === "f" || e.key === "F") {
-        if (e.target && /input|textarea|select/i.test(e.target.tagName)) return;
-        setFlip(!card.classList.contains("is-flipped"));
-      }
-    });
-  }
-
-  if (card && !reduce) {
-    var scene = card.parentElement;
-    scene.addEventListener("pointermove", function (e) {
-      if (card.classList.contains("is-flipped")) return;
-      var r = card.getBoundingClientRect();
-      var x = (e.clientX - r.left) / r.width - 0.5;
-      var y = (e.clientY - r.top) / r.height - 0.5;
-      card.style.transform = "rotateY(" + (x * 12).toFixed(2) + "deg) rotateX(" + (-y * 8).toFixed(2) + "deg)";
-    });
-    scene.addEventListener("pointerleave", function () {
-      card.style.transform = "";
-    });
+  if (card && flipBtn) {
+    flipBtn.addEventListener("click", function () { setFlip(!card.classList.contains("is-flipped")); });
+    card.addEventListener("dblclick", function () { setFlip(!card.classList.contains("is-flipped")); });
   }
 
   if (shareBtn) {
     shareBtn.addEventListener("click", function () {
-      var data = {
-        title: cfg.shareTitle || document.title,
-        text: cfg.shareText || "",
-        url: cfg.url || window.location.href
-      };
-      if (navigator.share) {
-        navigator.share(data).catch(function () {});
-        return;
-      }
-      var url = data.url;
+      var data = { title: cfg.shareTitle || document.title, text: cfg.shareText || "", url: cfg.url || location.href };
+      if (navigator.share) { navigator.share(data).catch(function () {}); return; }
       if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(url).then(function () {
-          toast("Link copied");
-        }).catch(function () {
-          fallbackCopy(url);
-        });
-      } else {
-        fallbackCopy(url);
-      }
+        navigator.clipboard.writeText(data.url).then(function () { toast("Link copied"); }, function () { toast(data.url); });
+      } else { toast(data.url); }
     });
   }
 
-  function fallbackCopy(text) {
-    var ta = document.createElement("textarea");
-    ta.value = text;
-    ta.setAttribute("readonly", "");
-    ta.style.position = "fixed";
-    ta.style.left = "-9999px";
-    document.body.appendChild(ta);
-    ta.select();
-    try {
-      document.execCommand("copy");
-      toast("Link copied");
-    } catch (err) {
-      toast("Copy this link: " + text);
-    }
-    document.body.removeChild(ta);
-  }
-
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", runEntrance);
-  } else {
-    runEntrance();
-  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", run); else run();
 })();
