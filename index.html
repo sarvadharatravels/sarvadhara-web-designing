@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Sarvadhara Sai Web Designing | Website Design in Chennai, Tamil Nadu, India</title>
   <meta name="description" content="All your website needs, at one door. Business websites, catalogues with WhatsApp ordering, booking forms, Google listing, digital e-cards and NFC cards — from Chennai, Tamil Nadu, India." />
-  <meta name="theme-color" content="#5A1420" />
+  <meta name="theme-color" content="#1A060B" />
   <link rel="canonical" href="https://web.sarvadharasai.in/" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Sarvadhara Sai Web Designing — All your website needs, at one door." />
@@ -20,9 +20,9 @@
   <link rel="manifest" href="site.webmanifest" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="preload" as="image" href="assets/img/emblem-480.webp" type="image/webp" />
-  <link rel="stylesheet" href="assets/site.css?v=20261118a" />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="preload" as="image" href="assets/img/portfolio/travels-desktop-1120.webp" type="image/webp" />
+  <link rel="stylesheet" href="assets/site.css?v=20261118v2" />
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"ProfessionalService","name":"Sarvadhara Sai Web Designing","parentOrganization":{"@type":"Organization","name":"SarvadharaSai Enterprises"},"description":"All your website needs, at one door.","url":"https://web.sarvadharasai.in/","telephone":"+91-9940299543","email":"info@sarvadharasai.in","image":"https://web.sarvadharasai.in/assets/img/og-image.png","logo":"https://web.sarvadharasai.in/logo-512.png","address":{"@type":"PostalAddress","addressLocality":"Chennai","addressRegion":"Tamil Nadu","addressCountry":"IN"},"areaServed":["Chennai","Tamil Nadu","India"],"sameAs":["https://sarvadharatravels.in/"]}
   </script>
@@ -55,6 +55,7 @@
     <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
     <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
     <symbol id="i-plane" viewBox="0 0 24 24"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></symbol>
+      <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3l1.9 5.6 5.6 1.9-5.6 1.9L12 18l-1.9-5.6-5.6-1.9 5.6-1.9z"/></symbol>
   </defs>
 </svg>
 
@@ -63,183 +64,224 @@
 <header class="hdr" id="top">
   <div class="wrap hdr__in">
     <a class="brand" href="#top" aria-label="Sarvadhara Sai Web Designing — home">
-      <picture><source srcset="assets/img/emblem-96.webp" type="image/webp" /><img src="assets/img/emblem-96.png" width="96" height="93" alt="" /></picture>
+      <span class="brand__mark"><picture><source srcset="assets/img/emblem-96.webp" type="image/webp" /><img src="assets/img/emblem-96.png" width="96" height="93" alt="" /></picture></span>
       <span class="brand__txt"><b>Sarvadhara Sai</b><small>Web Designing</small></span>
     </a>
     <nav class="nav" id="nav" aria-label="Main">
       <a href="#services">Services</a>
       <a href="#work">Work</a>
-      <a href="#process">How it works</a>
+      <a href="#process">Process</a>
       <a href="#contact">Contact</a>
-      <a class="btn btn--wa btn--sm nav__cta" href="https://wa.me/919940299543?text=Hello%20Sarvadhara%20Sai%20Web%20Designing%2C%20I%20would%20like%20a%20website." target="_blank" rel="noopener"><svg class="ico"><use href="#i-wa"/></svg>WhatsApp</a>
+      <a class="btn btn--gold btn--sm nav__cta" href="https://wa.me/919940299543?text=Hello%20Sarvadhara%20Sai%20Web%20Designing%2C%20I%20would%20like%20a%20website." target="_blank" rel="noopener"><svg class="ico"><use href="#i-wa"/></svg>Let’s talk</a>
     </nav>
+    <div class="hdr__tools">
+    <button class="sound" id="soundBtn" type="button" aria-pressed="false" aria-label="Play background music" title="Background music"><span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="sound__lbl">Sound</span></button>
     <button class="menu-btn" id="menuBtn" type="button" aria-controls="nav" aria-expanded="false" aria-label="Open menu"><svg class="ico"><use href="#i-menu"/></svg></button>
+    </div>
   </div>
 </header>
+<audio id="bgmA" preload="auto" src="assets/audio/playlist-1.mp3"></audio>
+<audio id="bgmB" preload="none"></audio>
 
 <main id="main">
   <!-- HERO -->
   <section class="hero">
+    <div class="aurora" aria-hidden="true"><span class="a1"></span><span class="a2"></span><span class="a3"></span></div>
+    <div class="grain" aria-hidden="true"></div>
     <div class="wrap hero__in">
       <div class="hero__copy">
-        <p class="eyebrow eyebrow--light"><span class="dot"></span><span class="hide-sm">Web design studio ·</span>Chennai, Tamil Nadu, India</p>
-        <h1>All your website needs, <span class="gold">at one door.</span></h1>
-        <p class="lead">Clean, mobile-first websites, e-cards and digital tools for local businesses — planned from one simple requirement form, previewed before anything goes live.</p>
-        <div class="cta-row">
+        <p class="pill enter" style="--d:.05s"><span class="pill__mark"><img src="assets/img/emblem-96.webp" width="96" height="93" alt="" /></span>Web design studio · Chennai, Tamil Nadu, India</p>
+        <h1 class="enter" style="--d:.15s">All your website needs, <em class="serif gold">at one door.</em></h1>
+        <p class="lead enter" style="--d:.3s">Premium websites, e-cards and digital tools for local businesses — planned from one simple requirement form and previewed before anything goes live.</p>
+        <div class="cta-row enter" style="--d:.42s">
           <a class="btn btn--gold btn--lg" href="https://wa.me/919940299543?text=Hello%20Sarvadhara%20Sai%20Web%20Designing%2C%20I%20would%20like%20a%20website." target="_blank" rel="noopener"><svg class="ico"><use href="#i-wa"/></svg>Chat on WhatsApp</a>
-          <a class="btn btn--ghost btn--lg" href="assets/Website-Requirement-Form.pdf" download><svg class="ico"><use href="#i-file"/></svg>Requirement form</a>
+          <a class="btn btn--glass btn--lg" href="assets/Website-Requirement-Form.pdf" download><svg class="ico"><use href="#i-file"/></svg>Requirement form</a>
         </div>
-        <ul class="hero__trust">
-          <li><svg class="ico"><use href="#i-check"/></svg>1st-year domain, hosting &amp; SSL</li>
+        <ul class="hero__trust enter" style="--d:.55s">
           <li><svg class="ico"><use href="#i-check"/></svg>Preview before go-live</li>
-          <li><svg class="ico"><use href="#i-check"/></svg>Udyam-registered firm</li>
+          <li><svg class="ico"><use href="#i-check"/></svg>1st-year domain, hosting &amp; SSL</li>
+          <li><svg class="ico"><use href="#i-check"/></svg>Udyam-registered</li>
         </ul>
       </div>
-      <div class="hero__art" aria-hidden="true">
-        <div class="halo">
-          <picture><source srcset="assets/img/emblem-480.webp" type="image/webp" /><img src="assets/img/emblem-480.png" width="480" height="464" alt="" fetchpriority="high" /></picture>
+
+      <div class="stage enter" style="--d:.25s" aria-hidden="true">
+        <div class="stage__3d">
+          <div class="laptop fl fl--1">
+            <div class="laptop__screen"><span class="laptop__cam"></span><img src="assets/img/portfolio/travels-desktop-1120.webp" width="1120" height="700" alt="" /></div>
+            <div class="laptop__base"></div>
+          </div>
+          <div class="phone fl fl--2"><span class="phone__notch"></span><img src="assets/img/portfolio/restaurant-mobile.webp" width="390" height="780" alt="" /></div>
+          <div class="ecard fl fl--3"><img src="assets/img/portfolio/ecard-mobile.webp" width="360" height="740" alt="" /><span class="ecard__tag">Digital e-card</span></div>
+          <div class="medal fl fl--4"><img src="assets/img/emblem-480.webp" width="480" height="464" alt="" /></div>
+          <div class="chip fl fl--5"><span class="chip__dot"></span>Live preview ready</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- STATS -->
-  <section class="stats" aria-label="At a glance">
-    <div class="wrap stats__grid">
-      <div class="stat"><b>1</b><span>requirement form, then a personal quote</span></div>
-      <div class="stat"><b>5–7</b><span>working days to a preview</span></div>
-      <div class="stat"><b>1st year</b><span>domain, hosting &amp; SSL included</span></div>
-      <div class="stat"><b>100%</b><span>mobile-first, fast static sites</span></div>
+  <!-- MARQUEE -->
+  <div class="marquee" aria-label="Services we offer">
+    <div class="marquee__track">
+      <ul><li>Business websites</li><li>Catalogues</li><li>Booking pages</li><li>Digital e-cards</li><li>NFC cards</li><li>Wedding sites</li><li>Google listing</li><li>WhatsApp Business</li><li>QR menus</li><li>Redesigns</li><li>Tamil–English sites</li></ul>
+      <ul aria-hidden="true"><li>Business websites</li><li>Catalogues</li><li>Booking pages</li><li>Digital e-cards</li><li>NFC cards</li><li>Wedding sites</li><li>Google listing</li><li>WhatsApp Business</li><li>QR menus</li><li>Redesigns</li><li>Tamil–English sites</li></ul>
     </div>
-  </section>
+  </div>
 
   <!-- SERVICES -->
-  <section class="sec" id="services">
+  <section class="sec sec--cream" id="services">
     <div class="wrap">
-      <div class="sec__head">
-        <p class="eyebrow">Websites</p>
-        <h2>Websites that help people find and contact you</h2>
-        <p class="sub">Clear, fast, mobile-friendly sites for shops, clinics, offices and professionals — just what you need to be online.</p>
+      <div class="sec__head" data-rv>
+        <p class="eyebrow">What we build</p>
+        <h2>Websites that make people <em class="serif">stop, trust</em> and <em class="serif">call.</em></h2>
+        <p class="sub">Fast, mobile-first sites for shops, clinics, offices and professionals — everything you need to be found and contacted.</p>
       </div>
-      <div class="grid grid--3">
-        <article class="card"><span class="card__ico"><svg class="ico"><use href="#i-monitor"/></svg></span><h3>Business websites</h3><p>Fast static sites — Home, About, Services and Contact, with your logo, colours and photos.</p></article>
-        <article class="card"><span class="card__ico"><svg class="ico"><use href="#i-bag"/></svg></span><h3>Catalogues &amp; ordering</h3><p>Show products clearly and let customers order on UPI or WhatsApp — no complicated cart.</p></article>
-        <article class="card"><span class="card__ico"><svg class="ico"><use href="#i-cal"/></svg></span><h3>Enquiry &amp; booking forms</h3><p>Appointment and enquiry requests that land straight on your WhatsApp or email.</p></article>
-        <article class="card"><span class="card__ico"><svg class="ico"><use href="#i-refresh"/></svg></span><h3>Website redesigns</h3><p>A fresh, modern look for a site you already have, reusing your existing words and photos.</p></article>
-        <article class="card"><span class="card__ico"><svg class="ico"><use href="#i-pin"/></svg></span><h3>Google Business listing</h3><p>Your profile set up with details and logo, so nearby customers find you on Search and Maps.</p></article>
-        <article class="card"><span class="card__ico"><svg class="ico"><use href="#i-chat"/></svg></span><h3>WhatsApp Business setup</h3><p>Profile, catalogue, labels and quick replies, ready for everyday customer chats.</p></article>
+      <div class="bento">
+        <article class="tile tile--hero" data-rv>
+          <span class="tile__ico"><svg class="ico"><use href="#i-monitor"/></svg></span>
+          <h3>Business websites</h3>
+          <p>Home, About, Services and Contact — with your logo, colours and photos, built as fast static sites.</p>
+          <div class="tile__shot"><img src="assets/img/portfolio/clinic-desktop-880.webp" width="880" height="550" alt="" loading="lazy" /></div>
+        </article>
+        <article class="tile tile--wide" data-rv>
+          <div class="tile__row">
+            <div>
+              <span class="tile__ico"><svg class="ico"><use href="#i-bag"/></svg></span>
+              <h3>Catalogues &amp; ordering</h3>
+              <p>Show products beautifully; customers order on UPI or WhatsApp — no complicated cart.</p>
+            </div>
+            <div class="tile__phone"><img src="assets/img/portfolio/boutique-mobile.webp" width="390" height="780" alt="" loading="lazy" /></div>
+          </div>
+        </article>
+        <article class="tile" data-rv><span class="tile__ico"><svg class="ico"><use href="#i-cal"/></svg></span><h3>Enquiry &amp; booking forms</h3><p>Requests land straight on your WhatsApp or email.</p></article>
+        <article class="tile" data-rv><span class="tile__ico"><svg class="ico"><use href="#i-refresh"/></svg></span><h3>Website redesigns</h3><p>A modern look for the site you already have.</p></article>
+        <article class="tile" data-rv><span class="tile__ico"><svg class="ico"><use href="#i-pin"/></svg></span><h3>Google listing</h3><p>Be found on Search and Maps by nearby customers.</p></article>
+        <article class="tile" data-rv><span class="tile__ico"><svg class="ico"><use href="#i-chat"/></svg></span><h3>WhatsApp Business</h3><p>Profile, catalogue, labels and quick replies, set up.</p></article>
+        <article class="tile tile--dark tile--wide" data-rv>
+          <p class="tile__k">Every website includes</p>
+          <ul class="ticks">
+            <li><svg class="ico"><use href="#i-check"/></svg>Mobile-first design</li>
+            <li><svg class="ico"><use href="#i-check"/></svg>Your own domain</li>
+            <li><svg class="ico"><use href="#i-check"/></svg>Hosting &amp; SSL</li>
+            <li><svg class="ico"><use href="#i-check"/></svg>WhatsApp &amp; call buttons</li>
+            <li><svg class="ico"><use href="#i-check"/></svg>Preview before go-live</li>
+            <li><svg class="ico"><use href="#i-check"/></svg>Simple edits later</li>
+          </ul>
+        </article>
       </div>
+    </div>
+  </section>
 
-      <div class="includes">
-        <p class="includes__t">Every website includes</p>
-        <ul>
-          <li><svg class="ico"><use href="#i-check"/></svg>Mobile-first layout</li>
-          <li><svg class="ico"><use href="#i-check"/></svg>Your own domain</li>
-          <li><svg class="ico"><use href="#i-check"/></svg>Hosting &amp; SSL</li>
-          <li><svg class="ico"><use href="#i-check"/></svg>WhatsApp &amp; call buttons</li>
-          <li><svg class="ico"><use href="#i-check"/></svg>A preview first</li>
-        </ul>
+  <!-- DIGITAL SERVICES -->
+  <section class="sec sec--night">
+    <div class="glow glow--l" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="sec__head" data-rv>
+        <p class="eyebrow eyebrow--gold">Beyond the website</p>
+        <h2>Everything else, <em class="serif gold">at the same door.</em></h2>
+        <p class="sub">Tick what you need on the requirement form — we quote it with your website, or on its own.</p>
       </div>
-
-      <div class="sec__head sec__head--gap">
-        <p class="eyebrow">Digital services</p>
-        <h2>Everything else your business needs online</h2>
-        <p class="sub">Tick what you need on the requirement form and we quote it together with your website — or on its own.</p>
-      </div>
-      <div class="grid grid--ds">
-        <article class="ds">
-          <div class="ds__top"><span class="card__ico"><svg class="ico"><use href="#i-pen"/></svg></span><h3>Brand &amp; Design</h3></div>
-          <ul class="chips"><li>Logo design</li><li>Social media creatives</li><li>Posters &amp; banners</li><li>Brochures &amp; flyers</li><li>Product photo cleanup</li><li>Short promo reels</li><li>Invoice &amp; quote templates</li></ul>
+      <div class="dgrid">
+        <article class="glass glass--feature" data-rv>
+          <div class="glass__body">
+            <div class="glass__top"><span class="tile__ico tile__ico--glass"><svg class="ico"><use href="#i-heart"/></svg></span><h3>Personal &amp; Events</h3></div>
+            <ul class="chips"><li>Digital e-cards</li><li>NFC smart visiting cards</li><li>Wedding websites</li><li>Event microsites</li><li>Memorial pages</li><li>Link-in-bio pages</li><li>Portfolio &amp; resume sites</li></ul>
+            <a class="link" href="card/">See our live e-card <svg class="ico"><use href="#i-arrow"/></svg></a>
+          </div>
+          <div class="glass__phone"><img src="assets/img/portfolio/ecard-mobile.webp" width="360" height="740" alt="Sarvadhara Sai Web Designing digital e-card" loading="lazy" /></div>
         </article>
-        <article class="ds">
-          <div class="ds__top"><span class="card__ico"><svg class="ico"><use href="#i-trend"/></svg></span><h3>Grow Online</h3></div>
-          <ul class="chips"><li>Google Business Profile</li><li>Google reviews QR</li><li>Basic local SEO</li><li>WhatsApp Business</li><li>Business email setup</li><li>Offer landing pages</li><li>Content writing (English &amp; Tamil)</li></ul>
+        <article class="glass" data-rv>
+          <div class="glass__top"><span class="tile__ico tile__ico--glass"><svg class="ico"><use href="#i-pen"/></svg></span><h3>Brand &amp; Design</h3></div>
+          <ul class="chips"><li>Logo design</li><li>Social creatives</li><li>Posters &amp; banners</li><li>Brochures &amp; flyers</li><li>Photo cleanup</li><li>Promo reels</li><li>Invoice templates</li></ul>
         </article>
-        <article class="ds">
-          <div class="ds__top"><span class="card__ico"><svg class="ico"><use href="#i-qr"/></svg></span><h3>Smart Business Tools</h3></div>
-          <ul class="chips"><li>QR digital menus</li><li>Appointment booking pages</li><li>Online forms &amp; registrations</li><li>Loyalty &amp; coupon pages</li><li>Review &amp; feedback QR</li><li>Property pages</li><li>Tamil–English websites</li></ul>
+        <article class="glass" data-rv>
+          <div class="glass__top"><span class="tile__ico tile__ico--glass"><svg class="ico"><use href="#i-trend"/></svg></span><h3>Grow Online</h3></div>
+          <ul class="chips"><li>Google Business Profile</li><li>Reviews QR</li><li>Local SEO</li><li>Business email</li><li>Offer landing pages</li><li>English &amp; Tamil copy</li></ul>
         </article>
-        <article class="ds ds--feature">
-          <div class="ds__top"><span class="card__ico"><svg class="ico"><use href="#i-heart"/></svg></span><h3>Personal &amp; Events</h3></div>
-          <ul class="chips"><li>Digital E-cards</li><li>NFC smart visiting cards</li><li>Wedding websites</li><li>Event microsites</li><li>Memorial pages</li><li>Link-in-bio pages</li><li>Portfolio &amp; resume sites</li></ul>
-          <a class="link" href="card/">See a live e-card <svg class="ico"><use href="#i-arrow"/></svg></a>
+        <article class="glass" data-rv>
+          <div class="glass__top"><span class="tile__ico tile__ico--glass"><svg class="ico"><use href="#i-qr"/></svg></span><h3>Smart Business Tools</h3></div>
+          <ul class="chips"><li>QR digital menus</li><li>Booking pages</li><li>Online forms</li><li>Loyalty &amp; coupons</li><li>Feedback QR</li><li>Property pages</li><li>Tamil–English sites</li></ul>
         </article>
-        <article class="ds">
-          <div class="ds__top"><span class="card__ico"><svg class="ico"><use href="#i-shield"/></svg></span><h3>Care &amp; Support</h3></div>
-          <ul class="chips"><li>Website maintenance</li><li>Domain &amp; hosting renewals</li><li>DNS &amp; email hosting</li><li>Small updates to words &amp; photos</li><li>Monthly reviews &amp; visits report</li><li>Google profile upkeep</li></ul>
+        <article class="glass" data-rv>
+          <div class="glass__top"><span class="tile__ico tile__ico--glass"><svg class="ico"><use href="#i-shield"/></svg></span><h3>Care &amp; Support</h3></div>
+          <ul class="chips"><li>Website maintenance</li><li>Domain &amp; hosting renewals</li><li>DNS &amp; email hosting</li><li>Monthly reviews report</li><li>Small updates</li></ul>
         </article>
       </div>
     </div>
   </section>
 
   <!-- WORK -->
-  <section class="sec sec--tint" id="work">
+  <section class="sec sec--cream" id="work">
     <div class="wrap">
-      <div class="sec__head">
-        <p class="eyebrow">Work</p>
-        <h2>A look at what we build</h2>
-        <p class="sub">Sarvadhara Travels is our live sister-business site. The others are sample designs that show the style and quality you can expect.</p>
-        <p class="swipe">Swipe to see more →</p>
+      <div class="sec__head sec__head--split" data-rv>
+        <div>
+          <p class="eyebrow">Selected work</p>
+          <h2>Crafted to look <em class="serif">premium</em> on every screen.</h2>
+        </div>
+        <p class="sub">Sarvadhara Travels is our live sister-business site. The others are sample designs showing the quality you can expect.</p>
       </div>
-      <div class="work">
-        <a class="shot" href="https://sarvadharatravels.in/" target="_blank" rel="noopener">
-          <span class="shot__bar"><i></i><i></i><i></i><em>sarvadharatravels.in</em></span>
-          <img src="assets/img/portfolio/travels-desktop-880.webp" width="880" height="550" alt="Sarvadhara Travels website" loading="lazy" />
-          <span class="shot__cap"><b>Sarvadhara Travels</b><span class="tag tag--live">Live site</span></span>
-        </a>
-        <figure class="shot">
-          <span class="shot__bar"><i></i><i></i><i></i><em>restaurant — sample</em></span>
-          <img src="assets/img/portfolio/restaurant-desktop-880.webp" width="880" height="550" alt="Sample restaurant website design" loading="lazy" />
-          <figcaption class="shot__cap"><b>Restaurant</b><span class="tag">Sample design</span></figcaption>
-        </figure>
-        <figure class="shot">
-          <span class="shot__bar"><i></i><i></i><i></i><em>clinic — sample</em></span>
-          <img src="assets/img/portfolio/clinic-desktop-880.webp" width="880" height="550" alt="Sample clinic website design" loading="lazy" />
-          <figcaption class="shot__cap"><b>Clinic</b><span class="tag">Sample design</span></figcaption>
-        </figure>
-        <figure class="shot">
-          <span class="shot__bar"><i></i><i></i><i></i><em>boutique — sample</em></span>
-          <img src="assets/img/portfolio/boutique-desktop-880.webp" width="880" height="550" alt="Sample boutique catalogue website design" loading="lazy" />
-          <figcaption class="shot__cap"><b>Boutique catalogue</b><span class="tag">Sample design</span></figcaption>
-        </figure>
-        <figure class="shot">
-          <span class="shot__bar"><i></i><i></i><i></i><em>tuition — sample</em></span>
-          <img src="assets/img/portfolio/tuition-desktop-880.webp" width="880" height="550" alt="Sample tuition centre website design" loading="lazy" />
-          <figcaption class="shot__cap"><b>Tuition centre</b><span class="tag">Sample design</span></figcaption>
-        </figure>
-        <figure class="shot">
-          <span class="shot__bar"><i></i><i></i><i></i><em>real estate — sample</em></span>
-          <img src="assets/img/portfolio/realty-desktop-880.webp" width="880" height="550" alt="Sample real estate website design" loading="lazy" />
-          <figcaption class="shot__cap"><b>Real estate</b><span class="tag">Sample design</span></figcaption>
-        </figure>
+
+      <a class="feat" href="https://sarvadharatravels.in/" target="_blank" rel="noopener" data-rv>
+        <div class="feat__copy">
+          <span class="tag tag--live"><span class="chip__dot"></span>Live site</span>
+          <h3>Sarvadhara Travels</h3>
+          <p>Flights, holidays, cars and courier — a cinematic travel site for our sister business.</p>
+          <span class="link link--light">Visit sarvadharatravels.in <svg class="ico"><use href="#i-ext"/></svg></span>
+        </div>
+        <div class="feat__devices">
+          <div class="mini-laptop"><div class="mini-laptop__screen"><img src="assets/img/portfolio/travels-desktop-1120.webp" width="1120" height="700" alt="Sarvadhara Travels website on a laptop" loading="lazy" /></div><div class="mini-laptop__base"></div></div>
+          <div class="mini-phone"><img src="assets/img/portfolio/travels-mobile.webp" width="390" height="780" alt="Sarvadhara Travels website on a phone" loading="lazy" /></div>
+        </div>
+      </a>
+
+      <div class="works">
+        <figure class="wcard" data-rv><div class="wcard__frame"><span class="wcard__bar"><i></i><i></i><i></i></span><img src="assets/img/portfolio/restaurant-desktop-880.webp" width="880" height="550" alt="Sample restaurant website" loading="lazy" /></div><figcaption><b>Restaurant</b><span>Menu-led, WhatsApp ordering</span><em>Sample</em></figcaption></figure>
+        <figure class="wcard" data-rv><div class="wcard__frame"><span class="wcard__bar"><i></i><i></i><i></i></span><img src="assets/img/portfolio/clinic-desktop-880.webp" width="880" height="550" alt="Sample clinic website" loading="lazy" /></div><figcaption><b>Clinic</b><span>Calm, appointment-first</span><em>Sample</em></figcaption></figure>
+        <figure class="wcard" data-rv><div class="wcard__frame"><span class="wcard__bar"><i></i><i></i><i></i></span><img src="assets/img/portfolio/boutique-desktop-880.webp" width="880" height="550" alt="Sample boutique catalogue website" loading="lazy" /></div><figcaption><b>Boutique</b><span>Catalogue, order on WhatsApp</span><em>Sample</em></figcaption></figure>
+        <figure class="wcard" data-rv><div class="wcard__frame"><span class="wcard__bar"><i></i><i></i><i></i></span><img src="assets/img/portfolio/tuition-desktop-880.webp" width="880" height="550" alt="Sample tuition centre website" loading="lazy" /></div><figcaption><b>Tuition centre</b><span>Batches &amp; enquiries</span><em>Sample</em></figcaption></figure>
+        <figure class="wcard" data-rv><div class="wcard__frame"><span class="wcard__bar"><i></i><i></i><i></i></span><img src="assets/img/portfolio/realty-desktop-880.webp" width="880" height="550" alt="Sample real estate website" loading="lazy" /></div><figcaption><b>Real estate</b><span>Listings &amp; site visits</span><em>Sample</em></figcaption></figure>
       </div>
+      <p class="swipe">Swipe to see more →</p>
     </div>
   </section>
 
   <!-- PROCESS -->
-  <section class="sec" id="process">
+  <section class="sec sec--white" id="process">
     <div class="wrap">
-      <div class="sec__head">
+      <div class="sec__head sec__head--center" data-rv>
         <p class="eyebrow">How it works</p>
-        <h2>One form, one quote, then a preview</h2>
-        <p class="sub">A simple path with no back-and-forth for missing details.</p>
+        <h2>One form. One quote. <em class="serif">Then a preview.</em></h2>
       </div>
-      <ol class="steps">
-        <li class="step"><span class="step__n">01</span><span class="card__ico"><svg class="ico"><use href="#i-chat"/></svg></span><h3>Send a query</h3><p>WhatsApp, call, or use the enquiry form below.</p></li>
-        <li class="step"><span class="step__n">02</span><span class="card__ico"><svg class="ico"><use href="#i-file"/></svg></span><h3>Get the requirement form</h3><p>We send it the same day — or download it here.</p></li>
-        <li class="step"><span class="step__n">03</span><span class="card__ico"><svg class="ico"><use href="#i-edit"/></svg></span><h3>Fill it in</h3><p>Every section in one go, with your logo and photos.</p></li>
-        <li class="step"><span class="step__n">04</span><span class="card__ico"><svg class="ico"><use href="#i-quote"/></svg></span><h3>Get your quote</h3><p>A clear, personal quote within 1–2 working days.</p></li>
-        <li class="step"><span class="step__n">05</span><span class="card__ico"><svg class="ico"><use href="#i-rocket"/></svg></span><h3>Built &amp; previewed</h3><p>You review the preview; it goes live once you approve.</p></li>
+      <ol class="timeline">
+        <li data-rv><span class="tl__n">1</span><h3>Send a query</h3><p>WhatsApp, call, or the enquiry form below.</p></li>
+        <li data-rv><span class="tl__n">2</span><h3>Get the requirement form</h3><p>We send it to you — or download it here.</p></li>
+        <li data-rv><span class="tl__n">3</span><h3>Fill it in</h3><p>Every section in one go, with your logo and photos.</p></li>
+        <li data-rv><span class="tl__n">4</span><h3>Get your quote</h3><p>A clear, personal quote from your filled form.</p></li>
+        <li data-rv><span class="tl__n">5</span><h3>Built &amp; previewed</h3><p>You review the preview; it goes live once you approve.</p></li>
       </ol>
     </div>
   </section>
 
+  <!-- CTA BAND -->
+  <section class="band">
+    <div class="aurora aurora--band" aria-hidden="true"><span class="a1"></span><span class="a2"></span></div>
+    <div class="grain" aria-hidden="true"></div>
+    <div class="wrap band__in" data-rv>
+      <img class="band__emblem" src="assets/img/emblem-480.webp" width="480" height="464" alt="" loading="lazy" />
+      <h2>Your business, <em class="serif gold">online in days.</em></h2>
+      <p>Send one message. We’ll take it from there — form, quote, preview, live.</p>
+      <div class="cta-row cta-row--center">
+        <a class="btn btn--gold btn--lg" href="https://wa.me/919940299543?text=Hello%20Sarvadhara%20Sai%20Web%20Designing%2C%20I%20would%20like%20a%20website." target="_blank" rel="noopener"><svg class="ico"><use href="#i-wa"/></svg>Start on WhatsApp</a>
+        <a class="btn btn--glass btn--lg" href="#contact"><svg class="ico"><use href="#i-mail"/></svg>Send an enquiry</a>
+      </div>
+    </div>
+  </section>
+
   <!-- CONTACT -->
-  <section class="sec sec--dark" id="contact">
+  <section class="sec sec--cream" id="contact">
     <div class="wrap contact">
-      <div class="contact__info">
-        <p class="eyebrow eyebrow--light">Get in touch</p>
-        <h2>Start with a quick message</h2>
+      <div class="contact__info" data-rv>
+        <p class="eyebrow">Get in touch</p>
+        <h2>Let’s build something <em class="serif">beautiful.</em></h2>
         <p class="sub">Tell us what you need. We’ll reply with the requirement form and guide you from there.</p>
         <ul class="clist">
           <li><a href="tel:+919940299543"><span class="clist__ico"><svg class="ico"><use href="#i-phone"/></svg></span><span><small>Phone</small>+91 99402 99543</span></a></li>
@@ -247,10 +289,10 @@
           <li><a href="mailto:info@sarvadharasai.in"><span class="clist__ico"><svg class="ico"><use href="#i-mail"/></svg></span><span><small>Email</small>info@sarvadharasai.in</span></a></li>
           <li><div><span class="clist__ico"><svg class="ico"><use href="#i-pin"/></svg></span><span><small>Location</small>Chennai, Tamil Nadu, India</span></div></li>
         </ul>
-        <a class="btn btn--ghost" href="assets/Website-Requirement-Form.pdf" download><svg class="ico"><use href="#i-down"/></svg>Download requirement form (PDF)</a>
+        <a class="btn btn--outline" href="assets/Website-Requirement-Form.pdf" download><svg class="ico"><use href="#i-down"/></svg>Download requirement form (PDF)</a>
       </div>
 
-      <form class="form" id="enquiryForm" action="mailto:info@sarvadharasai.in" method="post" enctype="text/plain" novalidate>
+      <form class="form" id="enquiryForm" action="mailto:info@sarvadharasai.in" method="post" enctype="text/plain" novalidate data-rv>
         <h3>Send an enquiry</h3>
         <p class="form__note">Opens WhatsApp or your email with the message ready to send.</p>
         <div class="form__row">
@@ -284,45 +326,41 @@
       </form>
     </div>
   </section>
-
-  <!-- SISTER -->
-  <section class="sec sec--sister">
-    <div class="wrap">
-      <a class="sister" href="https://sarvadharatravels.in/" target="_blank" rel="noopener">
-        <span class="sister__ico"><svg class="ico"><use href="#i-plane"/></svg></span>
-        <span class="sister__txt"><small>Our sister business</small><b>Sarvadhara Travels</b><span>Flights, holidays, cars, passport &amp; visa help and courier — from the same SarvadharaSai Enterprises family.</span></span>
-        <span class="sister__go">Visit sarvadharatravels.in <svg class="ico"><use href="#i-ext"/></svg></span>
-      </a>
-    </div>
-  </section>
 </main>
 
 <footer class="ftr">
-  <div class="wrap ftr__grid">
-    <div class="ftr__brand">
-      <a class="brand brand--light" href="#top">
-        <picture><source srcset="assets/img/emblem-96.webp" type="image/webp" /><img src="assets/img/emblem-96.png" width="96" height="93" alt="" loading="lazy" /></picture>
-        <span class="brand__txt"><b>Sarvadhara Sai</b><small>Web Designing</small></span>
-      </a>
-      <p>All your website needs, at one door.<br />A unit of SarvadharaSai Enterprises.</p>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="wrap">
+    <a class="sister" href="https://sarvadharatravels.in/" target="_blank" rel="noopener">
+      <span class="sister__ico"><svg class="ico"><use href="#i-plane"/></svg></span>
+      <span class="sister__txt"><small>Our sister business</small><b>Sarvadhara Travels</b><span>Flights, holidays, cars, passport &amp; visa help and courier.</span></span>
+      <span class="sister__go">sarvadharatravels.in <svg class="ico"><use href="#i-ext"/></svg></span>
+    </a>
+    <div class="ftr__grid">
+      <div class="ftr__brand">
+        <span class="ftr__emblem"><img src="assets/img/emblem-480.webp" width="480" height="464" alt="Sarvadhara Sai emblem" loading="lazy" /></span>
+        <p><b>Sarvadhara Sai Web Designing</b><br />All your website needs, at one door.<br />A unit of SarvadharaSai Enterprises.</p>
+      </div>
+      <div>
+        <p class="ftr__h">Explore</p>
+        <ul><li><a href="#services">Services</a></li><li><a href="#work">Work</a></li><li><a href="#process">Process</a></li><li><a href="card/">Digital e-card</a></li><li><a href="https://sarvadharatravels.in/" target="_blank" rel="noopener">Sarvadhara Travels</a></li></ul>
+      </div>
+      <div>
+        <p class="ftr__h">Contact</p>
+        <ul><li><a href="tel:+919940299543">+91 99402 99543</a></li><li><a href="https://wa.me/919940299543" target="_blank" rel="noopener">WhatsApp</a></li><li><a href="mailto:info@sarvadharasai.in">info@sarvadharasai.in</a></li><li>Chennai, Tamil Nadu, India</li></ul>
+      </div>
     </div>
-    <div>
-      <p class="ftr__h">Explore</p>
-      <ul><li><a href="#services">Services</a></li><li><a href="#work">Work</a></li><li><a href="#process">How it works</a></li><li><a href="card/">Digital e-card</a></li><li><a href="https://sarvadharatravels.in/" target="_blank" rel="noopener">Sarvadhara Travels</a></li></ul>
+    <p class="ftr__word" aria-hidden="true">Sarvadhara Sai</p>
+    <div class="ftr__base">
+      <p>© 2026 Sarvadhara Sai Web Designing · SarvadharaSai Enterprises</p>
+      <p>Udyam: UDYAM-TN-34-0125107 · GSTIN: 33ARVPY1906F1ZF</p>
     </div>
-    <div>
-      <p class="ftr__h">Contact</p>
-      <ul><li><a href="tel:+919940299543">+91 99402 99543</a></li><li><a href="https://wa.me/919940299543" target="_blank" rel="noopener">WhatsApp</a></li><li><a href="mailto:info@sarvadharasai.in">info@sarvadharasai.in</a></li><li>Chennai, Tamil Nadu, India</li></ul>
-    </div>
-  </div>
-  <div class="wrap ftr__base">
-    <p>© 2026 Sarvadhara Sai Web Designing · SarvadharaSai Enterprises</p>
-    <p>Udyam: UDYAM-TN-34-0125107 · GSTIN: 33ARVPY1906F1ZF</p>
+    <p class="ftr__credit">Music: Satie, Gymnopédies No. 1 &amp; 3 (Teknopazzo) and Chopin, Nocturne Op. 72 No. 1 (Luke Faulkner, Musopen) — CC0 recordings via Wikimedia Commons.</p>
   </div>
 </footer>
 
 <a class="fab" href="https://wa.me/919940299543?text=Hello%20Sarvadhara%20Sai%20Web%20Designing%2C%20I%20would%20like%20a%20website." target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg class="ico"><use href="#i-wa"/></svg></a>
 
-<script src="assets/site.js?v=20261118a" defer></script>
+<script src="assets/site.js?v=20261118v2" defer></script>
 </body>
 </html>
